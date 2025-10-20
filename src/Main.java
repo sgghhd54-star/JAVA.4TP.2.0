@@ -545,103 +545,305 @@
 //    }
 //}
 
+// import java.util.*;
+
+// class Sklep {
+//     String produkt;
+//     int ilosc;
+//     double cena;
+
+//     Sklep(String produkt, int ilosc, double cena) {
+//         this.produkt = produkt;
+//         this.ilosc = ilosc;
+//         this.cena = cena;
+//     }
+
+//     public String toString() {
+//         return produkt + " - " + cena + " zł, sztuk: " + ilosc;
+//     }
+// }
+
+// public class Main {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+//         ArrayList<Sklep> produkty = new ArrayList<>();
+
+//         int wybor;
+
+//         do {
+//             System.out.println("\n====== SKLEP KOMPUTEROWY ======");
+//             System.out.println("1. Wyświetl produkty");
+//             System.out.println("2. Kup produkt");
+//             System.out.println("3. Dodaj nowy produkt");
+//             System.out.println("4. Zakończ");
+//             System.out.print("Wybierz opcję: ");
+//             wybor = scanner.nextInt();
+//             scanner.nextLine();
+
+//             switch (wybor) {
+//                 case 1:
+//                     System.out.println("\n--- Lista produktów ---");
+//                     if (produkty.isEmpty()) {
+//                         System.out.println("Brak produktów.");
+//                     } else {
+//                         for (int i = 0; i < produkty.size(); i++) {
+//                             System.out.println((i + 1) + ". " + produkty.get(i));
+//                         }
+//                     }
+//                     break;
+
+//                 case 2:
+//                     if (produkty.isEmpty()) {
+//                         System.out.println("Brak produktów do kupienia.");
+//                         break;
+//                     }
+//                     System.out.println("\nPodaj numer produktu do zakupu:");
+//                     for (int i = 0; i < produkty.size(); i++) {
+//                         System.out.println((i + 1) + ". " + produkty.get(i));
+//                     }
+//                     int nr = scanner.nextInt();
+//                     scanner.nextLine();
+//                     if (nr < 1 || nr > produkty.size()) {
+//                         System.out.println("Nieprawidłowy numer.");
+//                     } else {
+//                         Sklep produkt = produkty.get(nr - 1);
+//                         if (produkt.ilosc > 0) {
+//                             produkt.ilosc--;
+//                             System.out.println("Kupiono: " + produkt.produkt);
+//                         } else {
+//                             System.out.println("Brak na stanie.");
+//                         }
+//                     }
+//                     break;
+
+//                 case 3:
+//                     System.out.print("Nazwa produktu: ");
+//                     String nazwa = scanner.nextLine();
+//                     System.out.print("Cena: ");
+//                     double cena = scanner.nextDouble();
+//                     System.out.print("Ilość: ");
+//                     int ilosc = scanner.nextInt();
+//                     scanner.nextLine();
+//                     produkty.add(new Sklep(nazwa, ilosc, cena));
+//                     System.out.println("Produkt dodany.");
+//                     break;
+
+//                 case 4:
+//                     System.out.println("Zakończono program.");
+//                     break;
+
+//                 default:
+//                     System.out.println("Nieprawidłowa opcja.");
+//             }
+//         } while (wybor != 4);
+
+//         scanner.close();
+//     }
+// }
+
+//import java.util.*;
+//
+//class Sklep {
+//    String produkt;
+//    int ilosc;
+//    double cena;
+//
+//    Sklep(String produkt, int ilosc, double cena) {
+//        this.produkt = produkt;
+//        this.ilosc = ilosc;
+//        this.cena = cena;
+//    }
+//
+//    public String toString() {
+//        return produkt + " - " + cena + " zł, sztuk: " + ilosc;
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        ArrayList<Sklep> produkty = new ArrayList<>();
+//
+//        int wybor;
+//
+//        do {
+//            System.out.println("\n====== SKLEP KOMPUTEROWY ======");
+//            System.out.println("1. Wyświetl produkty");
+//            System.out.println("2. Kup produkt");
+//            System.out.println("3. Dodaj nowy produkt");
+//            System.out.println("4. Zakończ");
+//            System.out.print("Wybierz opcję: ");
+//            wybor = scanner.nextInt();
+//            scanner.nextLine();
+//
+//            switch (wybor) {
+//                case 1:
+//                    System.out.println("\n--- Lista produktów ---");
+//                    if (produkty.isEmpty()) {
+//                        System.out.println("Brak produktów.");
+//                    } else {
+//                        for (int i = 0; i < produkty.size(); i++) {
+//                            System.out.println((i + 1) + ". " + produkty.get(i));
+//                        }
+//                    }
+//                    break;
+//
+//                case 2:
+//                    if (produkty.isEmpty()) {
+//                        System.out.println("Brak produktów do kupienia.");
+//                        break;
+//                    }
+//                    System.out.println("\nPodaj numer produktu do zakupu:");
+//                    for (int i = 0; i < produkty.size(); i++) {
+//                        System.out.println((i + 1) + ". " + produkty.get(i));
+//                    }
+//                    int nr = scanner.nextInt();
+//                    scanner.nextLine();
+//                    if (nr < 1 || nr > produkty.size()) {
+//                        System.out.println("Nieprawidłowy numer.");
+//                    } else {
+//                        Sklep produkt = produkty.get(nr - 1);
+//                        if (produkt.ilosc > 0) {
+//                            produkt.ilosc--;
+//                            System.out.println("Kupiono: " + produkt.produkt);
+//                        } else {
+//                            System.out.println("Brak na stanie.");
+//                        }
+//                    }
+//                    break;
+//
+//                case 3:
+//                    System.out.print("Nazwa produktu: ");
+//                    String nazwa = scanner.nextLine();
+//                    System.out.print("Cena: ");
+//                    double cena = scanner.nextDouble();
+//                    System.out.print("Ilość: ");
+//                    int ilosc = scanner.nextInt();
+//                    scanner.nextLine();
+//                    produkty.add(new Sklep(nazwa, ilosc, cena));
+//                    System.out.println("Produkt dodany.");
+//                    break;
+//
+//                case 4:
+//                    System.out.println("Zakończono program.");
+//                    break;
+//
+//                default:
+//                    System.out.println("Nieprawidłowa opcja.");
+//            }
+//        } while (wybor != 4);
+//
+//        scanner.close();
+//    }
+//}
+
 import java.util.*;
 
-class Sklep {
-    String produkt;
-    int ilosc;
-    double cena;
+class Samochod {
+    String marka;
+    String model;
+    boolean dostepny;
 
-    Sklep(String produkt, int ilosc, double cena) {
-        this.produkt = produkt;
-        this.ilosc = ilosc;
-        this.cena = cena;
+    public Samochod(String marka, String model) {
+        this.marka = marka;
+        this.model = model;
+        this.dostepny = true;
+    }
+
+    public String getMarka() {
+        return marka;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public boolean isDostepny() {
+        return dostepny;
+    }
+
+    public void wypozycz() {
+        dostepny = false;
+    }
+
+    public void zwrot() {
+        dostepny = true;
     }
 
     public String toString() {
-        return produkt + " - " + cena + " zł, sztuk: " + ilosc;
+        return marka + " " + model + " - " + (dostepny ? "dostępny" : "wypożyczony");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Sklep> produkty = new ArrayList<>();
+        ArrayList<Samochod> samochody = new ArrayList<>();
+
+        samochody.add(new Samochod("Toyota", "Corolla"));
+        samochody.add(new Samochod("Volkswagen", "Polo"));
+        samochody.add(new Samochod("Audi", "A6"));
+        samochody.add(new Samochod("BMW", "X3"));
 
         int wybor;
 
         do {
-            System.out.println("\n====== SKLEP KOMPUTEROWY ======");
-            System.out.println("1. Wyświetl produkty");
-            System.out.println("2. Kup produkt");
-            System.out.println("3. Dodaj nowy produkt");
-            System.out.println("4. Zakończ");
+            System.out.println("\n--- MENU ---");
+            System.out.println("1. Wyświetl samochody");
+            System.out.println("2. Wypożycz samochód");
+            System.out.println("3. Zwróć samochód");
+            System.out.println("0. Wyjście");
             System.out.print("Wybierz opcję: ");
             wybor = scanner.nextInt();
-            scanner.nextLine();
 
             switch (wybor) {
                 case 1:
-                    System.out.println("\n--- Lista produktów ---");
-                    if (produkty.isEmpty()) {
-                        System.out.println("Brak produktów.");
-                    } else {
-                        for (int i = 0; i < produkty.size(); i++) {
-                            System.out.println((i + 1) + ". " + produkty.get(i));
-                        }
+                    for (int i = 0; i < samochody.size(); i++) {
+                        System.out.println(i + ". " + samochody.get(i));
                     }
                     break;
-
                 case 2:
-                    if (produkty.isEmpty()) {
-                        System.out.println("Brak produktów do kupienia.");
-                        break;
-                    }
-                    System.out.println("\nPodaj numer produktu do zakupu:");
-                    for (int i = 0; i < produkty.size(); i++) {
-                        System.out.println((i + 1) + ". " + produkty.get(i));
-                    }
-                    int nr = scanner.nextInt();
-                    scanner.nextLine();
-                    if (nr < 1 || nr > produkty.size()) {
-                        System.out.println("Nieprawidłowy numer.");
-                    } else {
-                        Sklep produkt = produkty.get(nr - 1);
-                        if (produkt.ilosc > 0) {
-                            produkt.ilosc--;
-                            System.out.println("Kupiono: " + produkt.produkt);
+                    System.out.print("Podaj numer samochodu do wypożyczenia: ");
+                    int wyp = scanner.nextInt();
+                    if (wyp >= 0 && wyp < samochody.size()) {
+                        Samochod s = samochody.get(wyp);
+                        if (s.isDostepny()) {
+                            s.wypozycz();
+                            System.out.println("Samochód wypożyczony.");
                         } else {
-                            System.out.println("Brak na stanie.");
+                            System.out.println("Samochód już wypożyczony.");
                         }
+                    } else {
+                        System.out.println("Nieprawidłowy numer.");
                     }
                     break;
-
                 case 3:
-                    System.out.print("Nazwa produktu: ");
-                    String nazwa = scanner.nextLine();
-                    System.out.print("Cena: ");
-                    double cena = scanner.nextDouble();
-                    System.out.print("Ilość: ");
-                    int ilosc = scanner.nextInt();
-                    scanner.nextLine();
-                    produkty.add(new Sklep(nazwa, ilosc, cena));
-                    System.out.println("Produkt dodany.");
+                    System.out.print("Podaj numer samochodu do zwrotu: ");
+                    int zwr = scanner.nextInt();
+                    if (zwr >= 0 && zwr < samochody.size()) {
+                        Samochod s = samochody.get(zwr);
+                        if (!s.isDostepny()) {
+                            s.zwrot();
+                            System.out.println("Samochód zwrócony.");
+                        } else {
+                            System.out.println("Ten samochód nie był wypożyczony.");
+                        }
+                    } else {
+                        System.out.println("Nieprawidłowy numer.");
+                    }
                     break;
-
-                case 4:
-                    System.out.println("Zakończono program.");
+                case 0:
+                    System.out.println("Zamykanie programu...");
                     break;
-
                 default:
                     System.out.println("Nieprawidłowa opcja.");
             }
-        } while (wybor != 4);
+
+        } while (wybor != 0);
 
         scanner.close();
     }
 }
-
-
 
 
 
